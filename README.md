@@ -35,10 +35,6 @@ Model is created using Keras Functional API and visualized with `model_to_dot` a
 ├── kt_utils.py # Dataset loader and helper functions
 ├── README.md # Project overview
 
-yaml
-Copy
-Edit
-
 ---
 
 ## 📊 Dataset Preprocessing
