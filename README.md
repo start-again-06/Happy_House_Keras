@@ -1,101 +1,109 @@
-# 😊 Happy Model – Smile Detection using Deep Learning
-This project builds a Convolutional Neural Network (CNN) using Keras to detect smiles in facial images. It applies deep learning to a binary classification task: identifying whether a person in an image is smiling.
+# 😊 Happy Model – Smile Detection with Keras
 
-📌 Objective
-Build and train a CNN to classify images as “happy” (smiling) or “not happy.”
+This project builds a convolutional neural network (CNN) using Keras to detect whether a person is smiling in an image. It includes dataset handling, model construction, training, inference, and visualization.
 
-Preprocess image data for training and evaluation.
+---
 
-Visualize performance and architecture.
+## 📌 Overview
 
-Test the model on custom images.
+- **Framework**: Keras (with TensorFlow backend)
+- **Task**: Binary classification – smiling vs not smiling
+- **Input Shape**: 64x64 RGB images
+- **Output**: Binary label (0: Not Happy, 1: Happy)
 
-🧠 Key Features
-End-to-end image classification pipeline
+---
 
-Keras Functional API for flexible architecture design
+## 🧠 Model Architecture
 
-Batch Normalization, Pooling, and Activation layers
+- **Input Layer**: (64, 64, 3)
+- **Convolution + ReLU**
+- **Batch Normalization**
+- **MaxPooling**
+- **Flatten**
+- **Fully Connected (Dense)**
+- **Sigmoid Output**
 
-Model visualization tools (architecture plots, prediction visualization)
+Model is created using Keras Functional API and visualized with `model_to_dot` and `plot_model`.
 
-Works with custom images via pre-trained model inference
+---
 
-📂 Dataset
-Facial images labeled as happy or not happy.
+## 🗂️ Files & Folders
 
-Images are resized and normalized for model input.
+├── images/
+│ └── my_image.jpg # Your custom input image
+├── HappyModel.png # Visual representation of model architecture
+├── kt_utils.py # Dataset loader and helper functions
+├── README.md # Project overview
 
-Dataset split into training and test sets.
+yaml
+Copy
+Edit
 
-🔧 Preprocessing Steps
-Normalize pixel values (0–255 → 0–1).
+---
 
-Convert labels into one-hot vectors.
+## 📊 Dataset Preprocessing
 
-Resize custom images to match input dimensions.
+- **Dataset**: Loaded via `kt_utils.py`
+- **Normalization**: `X_train` and `X_test` scaled to [0, 1]
+- **Shape Adjustments**:
+  - Transpose labels: `Y_train`, `Y_test`
+  - Original: (m, 64, 64, 3) → Normalized float32 arrays
 
-Expand dimensions for batch compatibility.
+---
 
-🧪 Model Overview
-Input: RGB images (64x64x3)
+## ✅ Training Metrics
 
-Layers:
+- **Loss**: Binary Cross-Entropy
+- **Accuracy**: % of correctly classified smiles
+- **Performance Output**:
+Loss = 0.XXXX
+Test Accuracy = 0.XX
 
-Convolutional layers
+yaml
+Copy
+Edit
 
-Batch Normalization
+---
 
-MaxPooling
+## 🖼️ Inference on Custom Image
 
-Dropout (optional)
+1. Place your image in the `images/` directory.
+2. Resize to 64x64 if not already.
+3. Run the prediction pipeline:
+ - Load image
+ - Preprocess using `image.img_to_array` and `preprocess_input`
+ - Model outputs prediction: smiling or not
 
-Fully Connected (Dense) layer
+---
 
-Sigmoid output for binary classification
+## 🧾 Dependencies
 
-Output: 0 (not happy) or 1 (happy)
+Install all required libraries using:
 
-📈 Evaluation Metrics
-Binary Cross-Entropy Loss
+```bash
+pip install -r requirements.txt
+Main libraries used:
 
-Accuracy on test set
+tensorflow / keras
 
-Prediction on new images
+numpy
 
-Visualization of:
-
-Accuracy & loss over epochs
-
-Model architecture (model.summary() and visual plots)
-
-📸 Prediction on Custom Images
-Upload an image (.jpg, .png, etc.)
-
-Resize to required dimensions (64x64)
-
-Preprocess image as model input
-
-Model outputs prediction with probability
-
-📊 Visualization Tools
-Architecture plots using plot_model
-
-Decision boundary plots
-
-Sample predictions with input image display
-
-🧾 Requirements
-Key libraries used:
-
-Keras
-
-TensorFlow
-
-NumPy
-
-Matplotlib
+matplotlib
 
 Pillow
 
-A full requirements.txt file can be generated for environment setup.
+pydot and graphviz (for model visualization)
+
+📈 Outputs
+Accuracy & loss on test dataset
+
+Model architecture plot (HappyModel.png)
+
+Console outputs for custom predictions
+
+Summary of the model (.summary())
+
+🖥️ Model Visualization
+Plot saved using plot_model()
+
+SVG model display using model_to_dot()
