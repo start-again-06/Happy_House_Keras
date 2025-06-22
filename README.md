@@ -30,9 +30,13 @@ Model is created using Keras Functional API and visualized with `model_to_dot` a
 ## 🗂️ Files & Folders
 
 ├── images/
+
 │ └── my_image.jpg # Your custom input image
+
 ├── HappyModel.png # Visual representation of model architecture
+
 ├── kt_utils.py # Dataset loader and helper functions
+
 ├── README.md # Project overview
 
 ---
@@ -52,14 +56,8 @@ Model is created using Keras Functional API and visualized with `model_to_dot` a
 - **Loss**: Binary Cross-Entropy
 - **Accuracy**: % of correctly classified smiles
 - **Performance Output**:
-Loss = 0.XXXX
-Test Accuracy = 0.XX
 
-yaml
-Copy
-Edit
-
----
+--
 
 ## 🖼️ Inference on Custom Image
 
